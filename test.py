@@ -1,5 +1,3 @@
-import pandas as pd
-
-df = pd.read_csv("data.csv", header=None)
-
-print(df.head())
+with open("data.csv", "r", encoding="utf-8") as f:
+    for i in range(3):
+        print(repr(f.readline()))

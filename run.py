@@ -8,6 +8,7 @@ import pandas as pd
 import yaml
 from utils.config import load_config, validate_config, set_seed
 from utils.validator import load_data , validate_data
+from utils.processor import generate_signal
 
 def main():
     parser = argparse.ArgumentParser(description="MLOps Batch Processing Task")
@@ -28,7 +29,8 @@ def main():
     df=load_data(args.input)
     validate_data(df)
 
-    print(df.dtypes)
+    generate_signal(df,config['window'])
+    print(df[['close','rolling_mean','signal']].head(10))
         
     
     
