@@ -9,8 +9,10 @@ import yaml
 from utils.config import load_config, validate_config, set_seed
 from utils.validator import load_data , validate_data
 from utils.processor import generate_signal
+from utils.metrics import (create_metrics,create_error_metrics,save_metrics,)
 
 def main():
+    start_time = time.time()
     parser = argparse.ArgumentParser(description="MLOps Batch Processing Task")
 
     parser.add_argument("--input", required=True, help="Path to input CSV")
@@ -30,7 +32,20 @@ def main():
     validate_data(df)
 
     generate_signal(df,config['window'])
-    print(df[['close','rolling_mean','signal']].head(10))
+    latency = (time.time() - start_time) * 1000
+
+    metrics = create_metrics(
+        version=config["version"],
+        rows_processed=len(df),
+        signal_rate=df["signal"].mean(),
+        latency_ms=latency,
+        seed=config["seed"]
+    )
+
+    save_metrics(metrics, args.output)
+
+    print(metrics)
+    
         
     
     
