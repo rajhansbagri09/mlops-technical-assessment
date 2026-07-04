@@ -1,0 +1,8 @@
+2026-07-04 14:22:29,325 - INFO - Job Started
+2026-07-04 14:22:29,326 - INFO - Configuration loaded
+2026-07-04 14:22:29,326 - INFO - Configuration validated
+2026-07-04 14:22:29,347 - INFO - Rows Loaded: 10000
+2026-07-04 14:22:29,350 - INFO - Dataset validated
+2026-07-04 14:22:29,351 - INFO - Signal generation completed
+2026-07-04 14:22:29,352 - INFO - Metrics saved successfully
+2026-07-04 14:22:29,352 - INFO - Job Completed Successfully

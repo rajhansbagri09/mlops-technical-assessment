@@ -1,10 +1,14 @@
 import argparse
 import time
 import sys
+
 from utils.config import load_config, validate_config, set_seed
 from utils.validator import load_data , validate_data
 from utils.processor import generate_signal
-from utils.metrics import (create_metrics,create_error_metrics,save_metrics,)
+from utils.metrics import (
+    create_metrics,
+    create_error_metrics,
+    save_metrics,)
 from utils.logger import setup_logger
 
 def main():

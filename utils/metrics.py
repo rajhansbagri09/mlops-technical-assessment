@@ -10,7 +10,7 @@ def create_metrics(version, rows_processed, signal_rate, latency_ms, seed):
         "version": version,
         "rows_processed": rows_processed,
         "metric": "signal_rate",
-        "value": round(signal_rate, 4),
+        "value": round(float(signal_rate), 4),
         "latency_ms": round(latency_ms, 2),
         "seed": seed,
         "status": "success"
